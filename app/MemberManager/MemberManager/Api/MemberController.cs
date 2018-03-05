@@ -11,9 +11,9 @@ namespace MemberManager.Api
     public class MemberController : BaseController, IMemberController
     {
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            throw new NotImplementedException();
         }
 
         // GET api/<controller>/5

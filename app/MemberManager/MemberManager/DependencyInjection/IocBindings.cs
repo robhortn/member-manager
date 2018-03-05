@@ -1,4 +1,6 @@
 ﻿using Ninject.Modules;
+using MemberManager.Api;
+using MemberManager.Interface;
 
 namespace MemberManager.DependencyInjection
 {
@@ -6,7 +8,7 @@ namespace MemberManager.DependencyInjection
     {
         public override void Load()
         {
-            throw new System.NotImplementedException();
+            Bind<IMemberController>().To<MemberController>();
         }
     }
 }
