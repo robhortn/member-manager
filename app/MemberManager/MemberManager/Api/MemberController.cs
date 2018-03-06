@@ -10,10 +10,18 @@ namespace MemberManager.Api
 {
     public class MemberController : BaseController, IMemberController
     {
+        private ITest _tester;
+
+        public MemberController(ITest tester)
+        {
+            _tester = tester;
+        }
+
         // GET api/<controller>
         public IHttpActionResult Get()
         {
-            throw new NotImplementedException();
+            var response = _tester.TestCall();
+            return Ok(response);
         }
 
         // GET api/<controller>/5
