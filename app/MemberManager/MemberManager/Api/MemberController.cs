@@ -5,22 +5,26 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using MemberManager.Interface;
+using MemberManager.Domain.Interfaces;
 
 namespace MemberManager.Api
 {
     public class MemberController : BaseController, IMemberController
     {
         private ITest _tester;
+        private IDomainClass _domainClass;
 
-        public MemberController(ITest tester)
+        public MemberController(ITest tester, IDomainClass domainClass)
         {
             _tester = tester;
+            _domainClass = domainClass;
         }
 
         // GET api/<controller>
         public IHttpActionResult Get()
         {
             var response = _tester.TestCall();
+            response = _domainClass.TestCall();
             return Ok(response);
         }
 

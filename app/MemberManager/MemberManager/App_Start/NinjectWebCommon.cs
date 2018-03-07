@@ -14,6 +14,8 @@ namespace MemberManager.App_Start
     using Ninject.Web.Common.WebHost;
 
     using MemberManager.Interface;
+    using MemberManager.Domain.Interfaces;
+    using MemberManager.Domain;
 
     public static class NinjectWebCommon
     {
@@ -66,6 +68,7 @@ namespace MemberManager.App_Start
             //            kernel.Bind<IRepository>().To<Repository>().InRequestScope();
             //        }
             kernel.Bind<ITest>().To<Test2>();
+            kernel.Bind<IDomainClass>().To<Class1>();
         }
     }
 }
