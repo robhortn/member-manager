@@ -69,6 +69,7 @@ namespace MemberManager.App_Start
             //        }
             kernel.Bind<ITest>().To<Test2>();
             kernel.Bind<IDomainClass>().To<Class1>();
+            kernel.Bind<IDomainClass2>().To<Class2>();
         }
     }
 }

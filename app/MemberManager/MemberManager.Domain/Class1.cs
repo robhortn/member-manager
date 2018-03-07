@@ -9,9 +9,21 @@ namespace MemberManager.Domain
 {
     public class Class1 : IDomainClass
     {
+        private IDomainClass2 _domainClass2;
+
+        public Class1(IDomainClass2 domainClass2)
+        {
+            _domainClass2 = domainClass2;
+        }
+
         public string TestCall()
         {
-            return "Hey from Domain.TestCall()";
+            return "Hey from Domain.Class1.TestCall()";
+        }
+
+        public string TestCall2()
+        {
+            return _domainClass2.TestCall();
         }
     }
 }

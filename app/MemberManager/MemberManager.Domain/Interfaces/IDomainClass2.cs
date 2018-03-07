@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MemberManager.Domain.Interfaces
 {
-    public interface IDomainClass
+    public interface IDomainClass2
     {
         string TestCall();
-        string TestCall2();
     }
 }

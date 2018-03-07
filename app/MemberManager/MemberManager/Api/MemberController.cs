@@ -25,6 +25,8 @@ namespace MemberManager.Api
         {
             var response = _tester.TestCall();
             response = _domainClass.TestCall();
+            response = _domainClass.TestCall2();
+
             return Ok(response);
         }
 
