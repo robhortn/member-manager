@@ -46,5 +46,11 @@
     <Compile Include="Interfaces\IDomainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MemberManager.Data\MemberManager.Data.csproj">
+      <Project>{5b87c31d-2017-4805-9d83-ba585a36e2a0}</Project>
+      <Name>MemberManager.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

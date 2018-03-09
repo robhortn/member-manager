@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DataClass1.cs" />
     <Compile Include="EF\Member.cs">
       <DependentUpon>MemberManagerDB.tt</DependentUpon>
     </Compile>
@@ -68,6 +68,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MemberManagerDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IMemberRepo.cs" />
+    <Compile Include="MemberRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

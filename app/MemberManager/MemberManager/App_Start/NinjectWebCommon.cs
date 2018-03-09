@@ -17,6 +17,9 @@ namespace MemberManager.App_Start
     using MemberManager.Domain.Interfaces;
     using MemberManager.Domain;
 
+    using MemberManager.Data.Interface;
+    using MemberManager.Data;
+
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -70,6 +73,7 @@ namespace MemberManager.App_Start
             kernel.Bind<ITest>().To<Test2>();
             kernel.Bind<IDomainClass>().To<Class1>();
             kernel.Bind<IDomainClass2>().To<Class2>();
+            kernel.Bind<IMemberRepo>().To<MemberRepo>();
         }
     }
 }

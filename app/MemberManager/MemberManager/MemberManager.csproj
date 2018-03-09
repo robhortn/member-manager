@@ -279,6 +279,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MemberManager.Data\MemberManager.Data.csproj">
+      <Project>{5b87c31d-2017-4805-9d83-ba585a36e2a0}</Project>
+      <Name>MemberManager.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MemberManager.Domain\MemberManager.Domain.csproj">
       <Project>{61e3da46-603a-4b21-aa24-8fdbea15d5c4}</Project>
       <Name>MemberManager.Domain</Name>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemberManager.Data
+namespace MemberManager.Data.Interface
 {
-    public class Class1
+    public interface IMemberRepo
     {
+        string DbCall();
     }
 }
