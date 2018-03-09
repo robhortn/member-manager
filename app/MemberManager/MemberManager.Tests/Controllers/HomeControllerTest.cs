@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MemberManager;
 using MemberManager.Controllers;
+using FluentAssertions;
 
 namespace MemberManager.Tests.Controllers
 {
@@ -18,7 +19,7 @@ namespace MemberManager.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.IsNotNull(result);
+            result.Should().NotBe(null);
             Assert.AreEqual("Home Page", result.ViewBag.Title);
         }
     }
