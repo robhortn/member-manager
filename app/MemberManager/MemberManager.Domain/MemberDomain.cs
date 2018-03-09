@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MemberManager.Data.EF;
 using MemberManager.Data.Interface;
 using MemberManager.Domain.Interfaces;
 
@@ -17,6 +18,31 @@ namespace MemberManager.Domain
         {
             _dw = dw;
             _repo = repo;
+        }
+
+        public string DbCall()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<Member> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Member GetMember(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Save(Member member)
+        {
+            throw new NotImplementedException();
         }
 
         public string TestCall()

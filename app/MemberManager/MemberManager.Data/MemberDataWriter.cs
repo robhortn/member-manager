@@ -12,12 +12,12 @@ namespace MemberManager.Data
     {
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public int Save(Member member)
         {
-            throw new NotImplementedException();
+            return 1;
         }
     }
 }
