@@ -12,21 +12,18 @@ namespace MemberManager.Api
     public class MemberController : BaseController, IMemberController
     {
         private ITest _tester;
-        private IDomainClass _domainClass;
+        private IMemberDomain _memberDomain;
 
-        public MemberController(ITest tester, IDomainClass domainClass)
+        public MemberController(ITest tester, IMemberDomain memberDomain)
         {
             _tester = tester;
-            _domainClass = domainClass;
+            _memberDomain = memberDomain;
         }
 
         // GET api/<controller>
         public IHttpActionResult Get()
         {
             var response = _tester.TestCall();
-            response = _domainClass.TestCall();
-            response = _domainClass.TestCall2();
-
             return Ok(response);
         }
 

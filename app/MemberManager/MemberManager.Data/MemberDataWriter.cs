@@ -8,19 +8,14 @@ using System.Threading.Tasks;
 
 namespace MemberManager.Data
 {
-    public class MemberRepo : IMemberRepo
+    public class MemberDataWriter : IMemberDataWriter
     {
-        public string DbCall()
-        {
-            return "Hey from DbCall in MemberRepo!";
-        }
-
-        public IQueryable<Member> Get()
+        public bool Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Member GetMember(int id)
+        public int Save(Member member)
         {
             throw new NotImplementedException();
         }

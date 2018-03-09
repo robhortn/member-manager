@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="MemberDomain.cs" />
     <Compile Include="Class2.cs" />
     <Compile Include="Interfaces\IDomainClass2.cs" />
-    <Compile Include="Interfaces\IDomainClass.cs" />
+    <Compile Include="Interfaces\IMemberDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

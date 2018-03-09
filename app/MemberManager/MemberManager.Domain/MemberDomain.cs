@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MemberManager.Data.Interface;
 using MemberManager.Domain.Interfaces;
 
 namespace MemberManager.Domain
 {
-    public class Class1 : IDomainClass
+    public class MemberDomain : IMemberDomain
     {
-        private IDomainClass2 _domainClass2;
+        private IMemberDataWriter _dw;
+        private IMemberRepo _repo;
 
-        public Class1(IDomainClass2 domainClass2)
+        public MemberDomain(IMemberDataWriter dw, IMemberRepo repo)
         {
-            _domainClass2 = domainClass2;
+            _dw = dw;
+            _repo = repo;
         }
 
         public string TestCall()
         {
             return "Hey from Domain.Class1.TestCall()";
-        }
-
-        public string TestCall2()
-        {
-            return _domainClass2.TestCall();
         }
     }
 }

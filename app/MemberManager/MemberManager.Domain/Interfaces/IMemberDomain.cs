@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemberManager.Data
+namespace MemberManager.Domain.Interfaces
 {
-    public class DataClass1
+    public interface IMemberDomain
     {
+
     }
 }

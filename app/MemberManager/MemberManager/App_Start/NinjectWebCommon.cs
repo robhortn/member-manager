@@ -71,9 +71,10 @@ namespace MemberManager.App_Start
             //            kernel.Bind<IRepository>().To<Repository>().InRequestScope();
             //        }
             kernel.Bind<ITest>().To<Test2>();
-            kernel.Bind<IDomainClass>().To<Class1>();
+            kernel.Bind<IMemberDomain>().To<MemberDomain>();
             kernel.Bind<IDomainClass2>().To<Class2>();
             kernel.Bind<IMemberRepo>().To<MemberRepo>();
+            kernel.Bind<IMemberDataWriter>().To<MemberDataWriter>();
         }
     }
 }
