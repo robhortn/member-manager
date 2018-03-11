@@ -1,7 +1,6 @@
-﻿
-using System.Web.Http;
+﻿using System.Web.Http;
 
-namespace MemberManager.Interface
+namespace MemberManager.Interfaces
 {
     public interface IMemberController
     {

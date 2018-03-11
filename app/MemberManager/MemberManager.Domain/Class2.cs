@@ -1,5 +1,4 @@
-﻿using MemberManager.Data.Interface;
-using MemberManager.Domain.Interfaces;
+﻿using MemberManager.Interfaces;
 using System;
 
 namespace MemberManager.Domain

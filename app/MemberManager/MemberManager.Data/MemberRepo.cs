@@ -1,6 +1,6 @@
 ﻿using MemberManager.Data.EF;
-using MemberManager.Data.Interface;
 using MemberManager.Data.Helpers;
+using MemberManager.Interfaces;
 
 using System;
 using System.Linq;

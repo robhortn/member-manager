@@ -1,29 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using MemberManager.Interfaces;
 using System.Web.Http;
-using MemberManager.Interface;
-using MemberManager.Domain.Interfaces;
 
 namespace MemberManager.Api
 {
     public class MemberController : BaseController, IMemberController
     {
-        private ITest _tester;
         private IMemberDomain _memberDomain;
 
-        public MemberController(ITest tester, IMemberDomain memberDomain)
+        public MemberController(IMemberDomain memberDomain)
         {
-            _tester = tester;
             _memberDomain = memberDomain;
         }
 
         // GET api/<controller>
         public IHttpActionResult Get()
         {
-            var response = _tester.TestCall();
+            var response = _memberDomain.GetMember(1);
             return Ok(response);
         }
 
