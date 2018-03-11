@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Mappings.cs" />
     <Compile Include="Interface\IMemberDataWriter.cs" />
     <Compile Include="MemberDataWriter.cs" />
     <Compile Include="EF\Member.cs">
@@ -100,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MemberDomain.BusinessObjects\MemberManager.BusinessObjects.csproj">
+      <Project>{9d285219-4b8b-4fc9-a5d0-f42d3cfbbc9a}</Project>
+      <Name>MemberManager.BusinessObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

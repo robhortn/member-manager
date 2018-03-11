@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MemberDomain.BusinessObjects\MemberManager.BusinessObjects.csproj">
+      <Project>{9d285219-4b8b-4fc9-a5d0-f42d3cfbbc9a}</Project>
+      <Name>MemberManager.BusinessObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MemberManager.Data\MemberManager.Data.csproj">
       <Project>{5b87c31d-2017-4805-9d83-ba585a36e2a0}</Project>
       <Name>MemberManager.Data</Name>

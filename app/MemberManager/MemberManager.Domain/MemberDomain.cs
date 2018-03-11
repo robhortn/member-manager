@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MemberManager.Data.EF;
+using MemberManager.BusinessObjects;
 using MemberManager.Data.Interface;
 using MemberManager.Domain.Interfaces;
 
@@ -37,7 +37,7 @@ namespace MemberManager.Domain
 
         public Member GetMember(int id)
         {
-            throw new NotImplementedException();
+            return _repo.GetMember(1);
         }
 
         public int Save(Member member)

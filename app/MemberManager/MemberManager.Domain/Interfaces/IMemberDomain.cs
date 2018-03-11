@@ -1,18 +1,18 @@
-﻿using MemberManager.Data.EF;
-using System;
-using System.Collections.Generic;
+﻿using MemberManager.BusinessObjects;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MemberManager.Domain.Interfaces
 {
     public interface IMemberDomain
     {
-        int Save(Member member);
-        bool Delete(int id);
         string DbCall();
+
+        bool Delete(int id);
+
         IQueryable<Member> Get();
+
         Member GetMember(int id);
+
+        int Save(Member member);
     }
 }

@@ -1,28 +1,26 @@
 ﻿using MemberManager.Data.EF;
 using MemberManager.Data.Interface;
+using MemberManager.Data.Helpers;
+
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MemberManager.Data
 {
     public class MemberRepo : IMemberRepo
     {
-        public string DbCall()
-        {
-            return "Hey from DbCall in MemberRepo!";
-        }
-
-        public IQueryable<Member> Get()
+        IQueryable<BusinessObjects.Member> IMemberRepo.Get()
         {
             throw new NotImplementedException();
         }
 
-        public Member GetMember(int id)
+        BusinessObjects.Member IMemberRepo.GetMember(int id)
         {
-            throw new NotImplementedException();
+            Member objMember = new Member();
+            objMember.Id = 1;
+
+            BusinessObjects.Member results = Mappings.MapMember(objMember);
+            return results;
         }
     }
 }
