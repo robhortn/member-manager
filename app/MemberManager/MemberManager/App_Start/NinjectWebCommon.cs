@@ -13,7 +13,6 @@ namespace MemberManager.App_Start
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
 
-    using MemberManager.Interface;
     using MemberManager.Domain.Interfaces;
     using MemberManager.Domain;
 
