@@ -20,11 +20,6 @@ namespace MemberManager.Domain
             _repo = repo;
         }
 
-        public string DbCall()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Delete(int id)
         {
             throw new NotImplementedException();
@@ -43,11 +38,6 @@ namespace MemberManager.Domain
         public int Save(Member member)
         {
             throw new NotImplementedException();
-        }
-
-        public string TestCall()
-        {
-            return "Hey from Domain.Class1.TestCall()";
         }
     }
 }

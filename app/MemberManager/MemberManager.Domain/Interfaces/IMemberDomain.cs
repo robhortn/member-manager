@@ -5,8 +5,6 @@ namespace MemberManager.Domain.Interfaces
 {
     public interface IMemberDomain
     {
-        string DbCall();
-
         bool Delete(int id);
 
         IQueryable<Member> Get();
