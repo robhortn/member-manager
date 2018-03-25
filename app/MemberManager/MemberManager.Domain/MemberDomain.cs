@@ -37,7 +37,7 @@ namespace MemberManager.Domain
 
         public Member GetMember(int id)
         {
-            return _repo.GetMember(1);
+            return _repo.GetMember(id);
         }
 
         public int Save(Member member)

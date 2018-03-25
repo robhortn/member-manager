@@ -7,6 +7,11 @@ namespace MemberManager.Tests
     [TestClass]
     public class MemberManagerTests
     {
+        [TestInitialize]
+        public void Initialize() {
+            //IMemberDataWriter dw, IMemberRepo repo
+        }
+
         [TestMethod]
         public void TestGetMember()
         {

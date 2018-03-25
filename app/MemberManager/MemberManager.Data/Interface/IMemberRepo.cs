@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MemberManager.BusinessObjects;
 
 namespace MemberManager.Data.Interface
 {
@@ -6,6 +7,6 @@ namespace MemberManager.Data.Interface
     {
         IQueryable<BusinessObjects.Member> Get();
 
-        BusinessObjects.Member GetMember(int id);
+        Member GetMember(int id);
     }
 }
