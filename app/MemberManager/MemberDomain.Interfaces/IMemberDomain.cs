@@ -1,7 +1,7 @@
 ﻿using MemberManager.BusinessObjects;
 using System.Linq;
 
-namespace MemberManager.Domain.Interfaces
+namespace MemberManager.Interfaces
 {
     public interface IMemberDomain
     {

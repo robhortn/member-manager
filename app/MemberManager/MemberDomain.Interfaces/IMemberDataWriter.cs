@@ -1,6 +1,6 @@
-﻿using MemberManager.Data.EF;
+﻿using MemberManager.BusinessObjects;
 
-namespace MemberManager.Data.Interface
+namespace MemberManager.Interfaces
 {
     public interface IMemberDataWriter
     {

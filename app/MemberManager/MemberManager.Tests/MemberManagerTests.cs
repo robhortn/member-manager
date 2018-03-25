@@ -2,9 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 
-using MemberManager.Data.Interface;
-using MemberManager.Domain.Interfaces;
 using MemberManager.Domain;
+using MemberManager.Interfaces;
 
 namespace MemberManager.Tests
 {

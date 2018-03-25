@@ -1,6 +1,6 @@
-﻿using MemberManager.Data.Interface;
 using MemberManager.Data.Helpers;
 using MemberManager.BusinessObjects;
+using MemberManager.Interfaces;
 
 using System;
 using System.Linq;

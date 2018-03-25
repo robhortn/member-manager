@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Mappings.cs" />
-    <Compile Include="Interface\IMemberDataWriter.cs" />
     <Compile Include="MemberDataWriter.cs" />
     <Compile Include="EF\Member.cs">
       <DependentUpon>MemberManagerDB.tt</DependentUpon>
@@ -70,7 +69,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MemberManagerDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Interface\IMemberRepo.cs" />
     <Compile Include="MemberRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +105,13 @@
       <Project>{9d285219-4b8b-4fc9-a5d0-f42d3cfbbc9a}</Project>
       <Name>MemberManager.BusinessObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MemberDomain.Interfaces\MemberManager.Interfaces.csproj">
+      <Project>{fb4c0903-aa07-4f00-8a9c-927bdd7cf857}</Project>
+      <Name>MemberManager.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

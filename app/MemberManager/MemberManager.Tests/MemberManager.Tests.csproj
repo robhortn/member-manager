@@ -127,6 +127,10 @@
       <Project>{9d285219-4b8b-4fc9-a5d0-f42d3cfbbc9a}</Project>
       <Name>MemberManager.BusinessObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MemberDomain.Interfaces\MemberManager.Interfaces.csproj">
+      <Project>{fb4c0903-aa07-4f00-8a9c-927bdd7cf857}</Project>
+      <Name>MemberManager.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MemberManager.Data\MemberManager.Data.csproj">
       <Project>{5b87c31d-2017-4805-9d83-ba585a36e2a0}</Project>
       <Name>MemberManager.Data</Name>

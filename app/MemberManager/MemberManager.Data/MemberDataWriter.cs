@@ -1,5 +1,4 @@
-﻿using MemberManager.Data.EF;
-using MemberManager.Data.Interface;
+﻿using MemberManager.Interfaces;
 
 namespace MemberManager.Data
 {
@@ -7,12 +6,12 @@ namespace MemberManager.Data
     {
         public bool Delete(int id)
         {
-            return true;
+            throw new System.NotImplementedException();
         }
 
-        public int Save(Member member)
+        public int Save(BusinessObjects.Member member)
         {
-            return 1;
+            throw new System.NotImplementedException();
         }
     }
 }

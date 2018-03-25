@@ -1,23 +1,18 @@
-﻿
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MemberManager.App_Start.NinjectWebCommon), "Start")]
+﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MemberManager.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MemberManager.App_Start.NinjectWebCommon), "Stop")]
 
 namespace MemberManager.App_Start
 {
-    using System;
-    using System.Web;
-
+    using MemberManager.Data;
+    using MemberManager.Domain;
+    using MemberManager.Interfaces;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
 
-    using MemberManager.Domain.Interfaces;
-    using MemberManager.Domain;
-
-    using MemberManager.Data.Interface;
-    using MemberManager.Data;
+    using System;
+    using System.Web;
 
     public static class NinjectWebCommon
     {
@@ -60,6 +55,9 @@ namespace MemberManager.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            //kernel.Bind<IMemberRepo>().To<MemberRepo>();
+            //kernel.Bind<IMemberDataWriter>().To<MemberDataWriter>();
+
             //#if DEBUG
             //            kernel.Bind<IMailService>().To<MockMailService>().InRequestScope();
 
