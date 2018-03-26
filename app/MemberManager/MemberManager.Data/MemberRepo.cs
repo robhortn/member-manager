@@ -4,11 +4,19 @@ using MemberManager.Interfaces;
 
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MemberManager.Data
 {
     public class MemberRepo : IMemberRepo
     {
+        private List<EF.Member> _db = null;
+
+        public MemberRepo()
+        {
+            _db = new List<EF.Member>();
+        }
+    
         IQueryable<Member> IMemberRepo.Get()
         {
             throw new NotImplementedException();

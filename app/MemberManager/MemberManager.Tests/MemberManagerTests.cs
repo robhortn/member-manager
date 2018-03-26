@@ -4,6 +4,7 @@ using FluentAssertions;
 
 using MemberManager.Interfaces;
 using MemberManager.BusinessObjects;
+using System.Linq;
 
 namespace MemberManager.Tests
 {
@@ -14,7 +15,7 @@ namespace MemberManager.Tests
         public void Get()
         {
             var mock = new Mock<IMemberDomain>();
-            mock.Setup(x => x.Get()).Should().NotBeNull();
+            mock.Setup(x => x.Get()).Returns(It.IsAny<IQueryable<Member>>());
         }
 
         [TestMethod]
@@ -35,7 +36,7 @@ namespace MemberManager.Tests
         public void Save()
         {
             var mock = new Mock<IMemberDomain>();
-            mock.Setup(x => x.Save(It.IsAny<Member>())).Returns(1);
+            mock.Setup(x => x.Save(It.IsAny<Member>())).Returns(It.IsAny<int>());
         }
     }
 }
