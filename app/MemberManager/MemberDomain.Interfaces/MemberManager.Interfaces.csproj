@@ -53,8 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDomainClass2.cs" />
-    <Compile Include="IMemberController.cs" />
     <Compile Include="IMemberDataWriter.cs" />
     <Compile Include="IMemberDomain.cs" />
     <Compile Include="IMemberRepo.cs" />
