@@ -16,19 +16,46 @@ namespace MemberManager.Data
         {
             _db = new List<EF.Member>();
         }
-    
-        IQueryable<Member> IMemberRepo.Get()
+
+        public List<Member> Get()
         {
-            throw new NotImplementedException();
+            List<Member> results = new List<Member>();
+            foreach (var item in _db)
+            {
+                var addItem = Mappings.MapMember(item);
+                results.Add(addItem);
+            }
+            return results;
         }
 
-        Member IMemberRepo.GetMember(int id)
+        public Member GetMember(int id)
         {
-            EF.Member objMember = new EF.Member();
-            objMember.Id = 1;
+            var findResult = _db.Find(x => x.Id == id);
+            if (findResult == null) return new Member { Id = 0 };
 
-            Member results = Mappings.MapMember(objMember);
+            Member results = Mappings.MapMember(findResult);
             return results;
+        }
+        public bool Delete(int id)
+        {
+            var resultIndex = _db.FindIndex(x => x.Id == id);
+            if (resultIndex == -1) return false;
+
+            _db.RemoveAt(resultIndex);
+            return true;
+        }
+
+        public int Save(Member member)
+        {
+            var newMember = Mappings.MapMember(member);
+            newMember.Id = GetNextId();
+            _db.Add(newMember);
+            return newMember.Id;
+        }
+
+        private int GetNextId()
+        {
+            return _db.Count + 1;
         }
     }
 }

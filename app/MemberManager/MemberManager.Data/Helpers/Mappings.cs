@@ -13,6 +13,39 @@ namespace MemberManager.Data.Helpers
             {
                 BusinessObjects.Member objMember = new BusinessObjects.Member();
                 objMember.Id = member.Id;
+                objMember.Active = member.Active;
+                objMember.CreatedDate = member.CreatedDate;
+                objMember.DateOfBirth = member.DateOfBirth;
+                objMember.EmailAddress = member.EmailAddress;
+                objMember.FirstName = member.FirstName;
+                objMember.LastName = member.LastName;
+                objMember.LastModifiedDate = member.LastModifiedDate;
+                objMember.PhoneNumber = member.PhoneNumber;
+
+                return objMember;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static Member MapMember(BusinessObjects.Member member)
+        {
+            if (member == null) throw new NullReferenceException("member is null in params list");
+
+            try
+            {
+                Member objMember = new Member();
+                objMember.Id = member.Id;
+                objMember.Active = member.Active;
+                objMember.CreatedDate = member.CreatedDate;
+                objMember.DateOfBirth = member.DateOfBirth;
+                objMember.EmailAddress = member.EmailAddress;
+                objMember.FirstName = member.FirstName;
+                objMember.LastName = member.LastName;
+                objMember.LastModifiedDate = member.LastModifiedDate;
+                objMember.PhoneNumber = member.PhoneNumber;
 
                 return objMember;
             }

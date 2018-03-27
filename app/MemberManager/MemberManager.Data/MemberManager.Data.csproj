@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Mappings.cs" />
-    <Compile Include="MemberDataWriter.cs" />
     <Compile Include="EF\Member.cs">
       <DependentUpon>MemberManagerDB.tt</DependentUpon>
     </Compile>

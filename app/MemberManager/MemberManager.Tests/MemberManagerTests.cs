@@ -14,8 +14,9 @@ namespace MemberManager.Tests
         [TestMethod]
         public void Get()
         {
-            var mock = new Mock<IMemberDomain>();
-            mock.Setup(x => x.Get()).Returns(It.IsAny<IQueryable<Member>>());
+            Data.MemberRepo repo = new Data.MemberRepo();
+            repo.Save(new Member { FirstName = "Ben", LastName = "Kenobi" });
+            repo.Get().Count().Should().Be(1);
         }
 
         [TestMethod]
@@ -28,8 +29,13 @@ namespace MemberManager.Tests
         [TestMethod]
         public void Delete()
         {
-            var mock = new Mock<IMemberDomain>();
-            mock.Setup(x => x.Delete(It.Is<int>(i => true))).Returns(true);
+            Data.MemberRepo repo = new Data.MemberRepo();
+            repo.Save(new Member { FirstName = "Ben", LastName = "Kenobi" });
+            repo.Save(new Member { FirstName = "Han", LastName = "Solo" });
+            repo.Get().Count().Should().Be(2);
+
+            repo.Delete(1).Should().BeTrue();
+            repo.Get().Count().Should().Be(1);
         }
 
         [TestMethod]

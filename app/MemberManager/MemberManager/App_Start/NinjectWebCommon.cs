@@ -70,7 +70,6 @@ namespace MemberManager.App_Start
 
             kernel.Bind<IMemberDomain>().To<MemberDomain>();
             kernel.Bind<IMemberRepo>().To<MemberRepo>();
-            kernel.Bind<IMemberDataWriter>().To<MemberDataWriter>();
         }
     }
 }
