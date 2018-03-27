@@ -1,4 +1,5 @@
-﻿using MemberManager.Interfaces;
+﻿using MemberManager.BusinessObjects;
+using MemberManager.Interfaces;
 using System.Web.Http;
 
 namespace MemberManager.Api
@@ -15,29 +16,29 @@ namespace MemberManager.Api
         // GET api/<controller>
         public IHttpActionResult Get()
         {
-            var response = _memberDomain.GetMember(1);
+            var response = _memberDomain.Get();
             return Ok(response);
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var response = _memberDomain.GetMember(id);
+            return Ok(response);
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post([FromBody]Member member)
         {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
+            var response = _memberDomain.Save(member);
+            return Ok(response);
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            var response = _memberDomain.Delete(id);
+            return Ok(response);
         }
     }
 }

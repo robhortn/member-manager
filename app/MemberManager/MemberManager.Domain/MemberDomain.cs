@@ -1,29 +1,27 @@
 ﻿using MemberManager.BusinessObjects;
 using MemberManager.Interfaces;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace MemberManager.Domain
 {
     public class MemberDomain : IMemberDomain
     {
-        //private IMemberDataWriter _dw;
         private IMemberRepo _repo;
 
         public MemberDomain(IMemberRepo repo)
         {
-            //_dw = dw;
             _repo = repo;
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return _repo.Delete(id);
         }
 
-        public IQueryable<Member> Get()
+        public List<Member> Get()
         {
-            throw new NotImplementedException();
+            return _repo.Get();
         }
 
         public Member GetMember(int id)
@@ -33,7 +31,7 @@ namespace MemberManager.Domain
 
         public int Save(Member member)
         {
-            throw new NotImplementedException();
+            return _repo.Save(member);
         }
     }
 }

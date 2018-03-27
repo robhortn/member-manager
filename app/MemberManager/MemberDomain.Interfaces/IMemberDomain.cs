@@ -1,5 +1,5 @@
 ﻿using MemberManager.BusinessObjects;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace MemberManager.Interfaces
 {
@@ -7,7 +7,7 @@ namespace MemberManager.Interfaces
     {
         bool Delete(int id);
 
-        IQueryable<Member> Get();
+        List<Member> Get();
 
         Member GetMember(int id);
 
