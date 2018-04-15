@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace MemberManager.Data
 {
-    public class MemberRepo : IMemberRepo
+    public class MemberRepo : RepoBase, IMemberRepo
     {
         private List<EF.Member> _db = null;
 
@@ -47,15 +47,34 @@ namespace MemberManager.Data
 
         public int Save(Member member)
         {
-            var newMember = Mappings.MapMember(member);
-            newMember.Id = GetNextId();
-            _db.Add(newMember);
-            return newMember.Id;
-        }
+            EF.Member memberInfoToSave = null;
 
-        private int GetNextId()
-        {
-            return _db.Count + 1;
+            // Go get the existing record, if there is one, so we can update it.
+            if (member.Id > 0)
+            {
+                memberInfoToSave = MemberContext.Members.Find(member.Id);
+            }
+
+            // If we found no existing record or we had no Id at all, then we default to adding a new record.
+            if (memberInfoToSave == null)
+            {
+                memberInfoToSave = new EF.Member();
+                MemberContext.Members.Add(memberInfoToSave);
+                memberInfoToSave.CreatedDate = DateTime.Now;
+            }
+
+            memberInfoToSave.FirstName = member.FirstName;
+            memberInfoToSave.LastModifiedDate = DateTime.Now;
+            memberInfoToSave.Active = member.Active;
+            memberInfoToSave.DateOfBirth = DateTime.Now;
+            memberInfoToSave.EmailAddress = member.EmailAddress;
+            memberInfoToSave.LastName = member.LastName;
+            memberInfoToSave.PhoneNumber = member.PhoneNumber;
+            memberInfoToSave.UserName = member.UserName;
+
+            MemberContext.SaveChanges();
+
+            return memberInfoToSave.Id;
         }
     }
 }

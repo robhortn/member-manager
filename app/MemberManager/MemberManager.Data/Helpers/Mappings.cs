@@ -17,6 +17,7 @@ namespace MemberManager.Data.Helpers
                 objMember.CreatedDate = member.CreatedDate;
                 objMember.DateOfBirth = member.DateOfBirth;
                 objMember.EmailAddress = member.EmailAddress;
+                objMember.UserName = member.UserName;
                 objMember.FirstName = member.FirstName;
                 objMember.LastName = member.LastName;
                 objMember.LastModifiedDate = member.LastModifiedDate;
@@ -38,6 +39,7 @@ namespace MemberManager.Data.Helpers
             {
                 Member objMember = new Member();
                 objMember.Id = member.Id;
+                objMember.UserName = member.UserName;
                 objMember.Active = member.Active;
                 objMember.CreatedDate = member.CreatedDate;
                 objMember.DateOfBirth = member.DateOfBirth;

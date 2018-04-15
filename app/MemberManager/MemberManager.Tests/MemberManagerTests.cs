@@ -1,8 +1,6 @@
-﻿using Moq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 
-using MemberManager.Interfaces;
 using MemberManager.BusinessObjects;
 using System.Linq;
 

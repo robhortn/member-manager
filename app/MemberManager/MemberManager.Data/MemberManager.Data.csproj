@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="MemberRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="EF\MemberManagerDB.edmx">

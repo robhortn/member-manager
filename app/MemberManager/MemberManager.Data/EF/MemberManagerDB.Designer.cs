@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Rob\Documents\src\member-manager\proj\MemberManager\MemberManager.Data\EF\MemberManagerDB.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Users\Rob\src\member-manager\app\MemberManager\MemberManager.Data\EF\MemberManagerDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
