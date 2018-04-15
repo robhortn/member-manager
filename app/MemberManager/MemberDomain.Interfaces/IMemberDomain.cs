@@ -7,7 +7,7 @@ namespace MemberManager.Interfaces
     {
         bool Delete(int id);
 
-        List<Member> Get();
+        ICollection<Member> Get();
 
         Member GetMember(int id);
 

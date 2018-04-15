@@ -19,7 +19,7 @@ namespace MemberManager.Domain
             return _repo.Delete(id);
         }
 
-        public List<Member> Get()
+        public ICollection<Member> Get()
         {
             return _repo.Get();
         }

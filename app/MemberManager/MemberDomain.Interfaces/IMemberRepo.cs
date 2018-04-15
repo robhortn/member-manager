@@ -5,7 +5,7 @@ namespace MemberManager.Interfaces
 {
     public interface IMemberRepo
     {
-        List<Member> Get();
+        ICollection<Member> Get();
 
         Member GetMember(int id);
         int Save(Member member);

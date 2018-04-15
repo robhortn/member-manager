@@ -17,14 +17,21 @@ namespace MemberManager.Data
             _db = new List<EF.Member>();
         }
 
-        public List<Member> Get()
+        public ICollection<Member> Get()
         {
-            List<Member> results = new List<Member>();
-            foreach (var item in _db)
-            {
-                var addItem = Mappings.MapMember(item);
-                results.Add(addItem);
-            }
+            var results = MemberContext.Members.Select(x => new Member {
+                Active = x.Active,
+                CreatedDate = x.CreatedDate,
+                DateOfBirth = x.DateOfBirth,
+                EmailAddress = x.EmailAddress,
+                FirstName = x.FirstName,
+                Id = x.Id,
+                LastModifiedDate = x.LastModifiedDate,
+                LastName = x.LastName,
+                PhoneNumber = x.PhoneNumber,
+                UserName = x.UserName
+            }).ToList();
+
             return results;
         }
 
