@@ -37,7 +37,7 @@ namespace MemberManager.Data
 
         public Member GetMember(int id)
         {
-            var findResult = _db.Find(x => x.Id == id);
+            var findResult = GetMemberById(id);
             if (findResult == null) return new Member { Id = 0 };
 
             Member results = Mappings.MapMember(findResult);
@@ -59,7 +59,7 @@ namespace MemberManager.Data
             // Go get the existing record, if there is one, so we can update it.
             if (member.Id > 0)
             {
-                memberInfoToSave = MemberContext.Members.Find(member.Id);
+                memberInfoToSave = GetMemberById(member.Id);
             }
 
             // If we found no existing record or we had no Id at all, then we default to adding a new record.
@@ -82,6 +82,11 @@ namespace MemberManager.Data
             MemberContext.SaveChanges();
 
             return memberInfoToSave.Id;
+        }
+
+        private EF.Member GetMemberById(int id)
+        {
+            return MemberContext.Members.Find(id);
         }
     }
 }
