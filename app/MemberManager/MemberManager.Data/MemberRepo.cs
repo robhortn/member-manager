@@ -45,10 +45,12 @@ namespace MemberManager.Data
         }
         public bool Delete(int id)
         {
-            var resultIndex = _db.FindIndex(x => x.Id == id);
-            if (resultIndex == -1) return false;
+            var findResult = GetMemberById(id);
+            if (findResult == null) return false;
 
-            _db.RemoveAt(resultIndex);
+            findResult.Active = false;
+            MemberContext.SaveChanges();
+
             return true;
         }
 
