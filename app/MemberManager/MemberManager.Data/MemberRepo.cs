@@ -19,19 +19,8 @@ namespace MemberManager.Data
 
         public ICollection<Member> Get()
         {
-            var results = MemberContext.Members.Select(x => new Member {
-                Active = x.Active,
-                CreatedDate = x.CreatedDate,
-                DateOfBirth = x.DateOfBirth,
-                EmailAddress = x.EmailAddress,
-                FirstName = x.FirstName,
-                Id = x.Id,
-                LastModifiedDate = x.LastModifiedDate,
-                LastName = x.LastName,
-                PhoneNumber = x.PhoneNumber,
-                UserName = x.UserName
-            }).ToList();
-
+            var queryable = MemberContext.Members.AsQueryable();
+            var results = queryable.AsEnumerable().Select(x => Mappings.MapMember(x)).ToList();
             return results;
         }
 
