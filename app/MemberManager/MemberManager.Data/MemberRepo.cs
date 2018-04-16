@@ -19,7 +19,7 @@ namespace MemberManager.Data
 
         public ICollection<Member> Get()
         {
-            var queryable = MemberContext.Members.AsQueryable();
+            var queryable = MemberContext.Members.Where(m => m.Active == true).AsQueryable();
             var results = queryable.AsEnumerable().Select(x => Mappings.MapMember(x)).ToList();
             return results;
         }
@@ -64,7 +64,7 @@ namespace MemberManager.Data
             memberInfoToSave.FirstName = member.FirstName;
             memberInfoToSave.LastModifiedDate = DateTime.Now;
             memberInfoToSave.Active = member.Active;
-            memberInfoToSave.DateOfBirth = DateTime.Now;
+            memberInfoToSave.DateOfBirth = member.DateOfBirth;
             memberInfoToSave.EmailAddress = member.EmailAddress;
             memberInfoToSave.LastName = member.LastName;
             memberInfoToSave.PhoneNumber = member.PhoneNumber;
