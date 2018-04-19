@@ -1,10 +1,12 @@
 using MemberManager.Data.Helpers;
 using MemberManager.BusinessObjects;
 using MemberManager.Interfaces;
+using MemberManager.BusinessObjects.Queries;
 
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using MemberManager.Data.EF;
 
 namespace MemberManager.Data
 {
@@ -17,19 +19,20 @@ namespace MemberManager.Data
             _db = new List<EF.Member>();
         }
 
-        public ICollection<Member> Get()
+        public ICollection<BusinessObjects.Member> Get(MemberQueryParameter query)
         {
-            var queryable = MemberContext.Members.Where(m => m.Active == true).AsQueryable();
+            var queryable = GetBaseQuery();
+            queryable = ApplyQuery(query, queryable);
             var results = queryable.AsEnumerable().Select(x => Mappings.MapMember(x)).ToList();
             return results;
         }
 
-        public Member GetMember(int id)
+        public BusinessObjects.Member GetMember(int id)
         {
             var findResult = GetMemberById(id);
-            if (findResult == null) return new Member { Id = 0 };
+            if (findResult == null) return new BusinessObjects.Member { Id = 0 };
 
-            Member results = Mappings.MapMember(findResult);
+            BusinessObjects.Member results = Mappings.MapMember(findResult);
             return results;
         }
         public bool Delete(int id)
@@ -43,7 +46,7 @@ namespace MemberManager.Data
             return true;
         }
 
-        public int Save(Member member)
+        public int Save(BusinessObjects.Member member)
         {
             EF.Member memberInfoToSave = null;
 
@@ -79,5 +82,21 @@ namespace MemberManager.Data
         {
             return MemberContext.Members.Find(id);
         }
+
+        private IQueryable<EF.Member> GetBaseQuery()
+        {
+            return MemberContext.Members.Where(m => m.Active == true).AsQueryable();
+        }
+
+        private IQueryable<EF.Member> ApplyQuery(MemberQueryParameter query, IQueryable<EF.Member> queryable)
+        {
+            if (!string.IsNullOrWhiteSpace(query.FirstName))
+            {
+                queryable = queryable.Where(c => c.FirstName.Contains(query.FirstName));
+            }
+
+            return queryable;
+        }
+
     }
 }

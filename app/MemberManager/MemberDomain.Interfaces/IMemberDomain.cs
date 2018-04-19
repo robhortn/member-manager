@@ -1,4 +1,5 @@
 ﻿using MemberManager.BusinessObjects;
+using MemberManager.BusinessObjects.Queries;
 using System.Collections.Generic;
 
 namespace MemberManager.Interfaces
@@ -7,7 +8,7 @@ namespace MemberManager.Interfaces
     {
         bool Delete(int id);
 
-        ICollection<Member> Get();
+        ICollection<Member> Get(MemberQueryParameter query);
 
         Member GetMember(int id);
 

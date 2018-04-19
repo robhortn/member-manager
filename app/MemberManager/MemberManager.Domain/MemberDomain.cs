@@ -1,6 +1,7 @@
 ﻿using MemberManager.BusinessObjects;
+using MemberManager.BusinessObjects.Queries;
 using MemberManager.Interfaces;
-using System;
+
 using System.Collections.Generic;
 
 namespace MemberManager.Domain
@@ -19,9 +20,9 @@ namespace MemberManager.Domain
             return _repo.Delete(id);
         }
 
-        public ICollection<Member> Get()
+        public ICollection<Member> Get(MemberQueryParameter query)
         {
-            return _repo.Get();
+            return _repo.Get(query);
         }
 
         public Member GetMember(int id)

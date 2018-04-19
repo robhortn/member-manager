@@ -1,4 +1,5 @@
 ﻿using MemberManager.BusinessObjects;
+using MemberManager.BusinessObjects.Queries;
 using MemberManager.Interfaces;
 using System.Web.Http;
 
@@ -14,9 +15,9 @@ namespace MemberManager.Api
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get()
+        public IHttpActionResult Get([FromBody] MemberQueryParameter query)
         {
-            var response = _memberDomain.Get();
+            var response = _memberDomain.Get(query);
             return Ok(response);
         }
 
