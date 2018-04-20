@@ -1,13 +1,15 @@
+import { Member } from './../models/member';
 import { Injectable } from '@angular/core';
-// import { Http, HttpModule } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx/';
 import { Observable } from 'rxjs/Observable';
 
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+
 @Injectable()
 export class MemberService {
 
-  server_url = 'http://localhost:55648/api/member/4';
+  server_url = 'http://localhost:55648/api/';
   serviceData = null;
 
   constructor(private http: HttpClient) {
@@ -27,7 +29,13 @@ export class MemberService {
 
   loaddata(): Observable<any> {
     // return this.serviceData;
-    return this.http.get(this.server_url);
+    return this.http.get(this.server_url + 'member/4');
   }
 
+  getMembers(member: Member): Observable<any> {
+    // return this.serviceData;
+    const url = this.server_url + 'member/find';
+    const body = JSON.stringify(member);
+    return this.http.post(url, body);
+  }
 }

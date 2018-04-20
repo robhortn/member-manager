@@ -20,7 +20,7 @@ namespace MemberManager.Data
 
         public ICollection<Member> Get(MemberQueryParameter query)
         {
-            if (query == null) return new List<Member>();
+            if (query == null) query = new MemberQueryParameter { Id = 0 };
 
             var queryable = GetBaseQuery();
             queryable = ApplyQuery(query, queryable);

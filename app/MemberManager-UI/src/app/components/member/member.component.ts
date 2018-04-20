@@ -1,3 +1,4 @@
+import { Member } from './../../models/member';
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from '../../services/memberservice.service';
 import { MergeMapOperator } from 'rxjs/operators/mergeMap';
@@ -10,19 +11,20 @@ import { MergeMapOperator } from 'rxjs/operators/mergeMap';
 export class MemberComponent implements OnInit {
 
   members = [];
-  currentMember = {
-    Id: 0,
-    FirstName: 'Place',
-    LastName: 'Holder'
-  };
+  currentMember = {};
+  memberSearchQuery = new Member();
 
   constructor(private memberService: MemberService) {
 
   }
 
   ngOnInit() {
-    this.memberService.loaddata().subscribe(data => {
-      this.currentMember = data;
+    // this.memberService.loaddata().subscribe(data => {
+    //   this.currentMember = data;
+    // });
+    this.memberSearchQuery.Id = 0;
+    this.memberService.getMembers(this.memberSearchQuery).subscribe(data => {
+      this.members = data;
     });
   }
 }
