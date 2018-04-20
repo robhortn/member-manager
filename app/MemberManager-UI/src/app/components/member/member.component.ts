@@ -10,6 +10,11 @@ import { MergeMapOperator } from 'rxjs/operators/mergeMap';
 export class MemberComponent implements OnInit {
 
   members = [];
+  currentMember = {
+    Id: 0,
+    FirstName: 'Place',
+    LastName: 'Holder'
+  };
 
   constructor(private memberService: MemberService) {
 
@@ -17,7 +22,7 @@ export class MemberComponent implements OnInit {
 
   ngOnInit() {
     this.memberService.loaddata().subscribe(data => {
-      this.members = data;
+      this.currentMember = data;
     });
   }
 }
