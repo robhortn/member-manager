@@ -6,7 +6,6 @@ using MemberManager.BusinessObjects.Queries;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using MemberManager.Data.EF;
 
 namespace MemberManager.Data
 {
@@ -19,22 +18,22 @@ namespace MemberManager.Data
             _db = new List<EF.Member>();
         }
 
-        public ICollection<BusinessObjects.Member> Get(MemberQueryParameter query)
+        public ICollection<Member> Get(MemberQueryParameter query)
         {
-            if (query == null) return new List<BusinessObjects.Member>();
+            if (query == null) return new List<Member>();
 
             var queryable = GetBaseQuery();
             queryable = ApplyQuery(query, queryable);
-            var results = queryable.AsEnumerable().Select(x => Mappings.MapMember(x)).ToList();
+            var results = ConvertSearchResults(queryable);
             return results;
         }
 
-        public BusinessObjects.Member GetMember(int id)
+        public Member GetMember(int id)
         {
             var findResult = GetMemberById(id);
-            if (findResult == null) return new BusinessObjects.Member { Id = 0 };
+            if (findResult == null) return new Member { Id = 0 };
 
-            BusinessObjects.Member results = Mappings.MapMember(findResult);
+            Member results = Mappings.MapMember(findResult);
             return results;
         }
         public bool Delete(int id)
@@ -48,7 +47,7 @@ namespace MemberManager.Data
             return true;
         }
 
-        public int Save(BusinessObjects.Member member)
+        public int Save(Member member)
         {
             EF.Member memberInfoToSave = null;
 
@@ -143,6 +142,11 @@ namespace MemberManager.Data
             }
 
             return queryable;
+        }
+
+        private static List<Member> ConvertSearchResults(IQueryable<EF.Member> queryable)
+        {
+            return queryable.AsEnumerable().Select(x => Mappings.MapMember(x)).ToList();
         }
 
     }
