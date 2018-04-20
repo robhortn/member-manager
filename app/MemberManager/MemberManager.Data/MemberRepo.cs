@@ -21,6 +21,8 @@ namespace MemberManager.Data
 
         public ICollection<BusinessObjects.Member> Get(MemberQueryParameter query)
         {
+            if (query == null) return new List<BusinessObjects.Member>();
+
             var queryable = GetBaseQuery();
             queryable = ApplyQuery(query, queryable);
             var results = queryable.AsEnumerable().Select(x => Mappings.MapMember(x)).ToList();
@@ -90,9 +92,14 @@ namespace MemberManager.Data
 
         private IQueryable<EF.Member> ApplyQuery(MemberQueryParameter query, IQueryable<EF.Member> queryable)
         {
+            if (!string.IsNullOrWhiteSpace(query.UserName))
+            {
+                queryable = queryable.Where(q => q.UserName.Contains(query.UserName));
+            }
+
             if (!string.IsNullOrWhiteSpace(query.FirstName))
             {
-                queryable = queryable.Where(c => c.FirstName.Contains(query.FirstName));
+                queryable = queryable.Where(q => q.FirstName.Contains(query.FirstName));
             }
 
             return queryable;

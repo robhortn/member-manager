@@ -14,8 +14,9 @@ namespace MemberManager.Api
             _memberDomain = memberDomain;
         }
 
-        // GET api/<controller>
-        public IHttpActionResult Get([FromBody] MemberQueryParameter query)
+        [HttpPost]
+        [Route("member/find")]
+        public IHttpActionResult Members([FromBody] MemberQueryParameter query)
         {
             var response = _memberDomain.Get(query);
             return Ok(response);
@@ -28,7 +29,8 @@ namespace MemberManager.Api
             return Ok(response);
         }
 
-        // POST api/<controller>
+        [HttpPost]
+        [Route("member/save")]
         public IHttpActionResult Post([FromBody]Member member)
         {
             var response = _memberDomain.Save(member);
