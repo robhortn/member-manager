@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/Rx';
-import {Observable} from 'rxjs/Rx'
-
-import { Member } from '../components/member/member.component';
+// import { Http, HttpModule } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import 'rxjs/Rx/';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class MemberService {
 
-  server_url = 'http://localhost:55648/api/member';
+  server_url = 'http://localhost:55648/api/member/4';
   serviceData = null;
 
-  constructor(private http: Http) { 
+  constructor(private http: HttpClient) {
 
   }
 
@@ -27,8 +26,8 @@ export class MemberService {
   }
 
   loaddata(): Observable<any> {
-    return this.http.get(this.server_url)
-      .map(this.extractData);
+    // return this.serviceData;
+    return this.http.get(this.server_url);
   }
 
 }

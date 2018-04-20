@@ -7,17 +7,17 @@ import { MergeMapOperator } from 'rxjs/operators/mergeMap';
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.css']
 })
-export class Member implements OnInit {
+export class MemberComponent implements OnInit {
 
   members = [];
 
-  constructor(private memberService: MemberService) { 
+  constructor(private memberService: MemberService) {
 
   }
 
   ngOnInit() {
     this.memberService.loaddata().subscribe(data => {
       this.members = data;
-    })
+    });
   }
 }
