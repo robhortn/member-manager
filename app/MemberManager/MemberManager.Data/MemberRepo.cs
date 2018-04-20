@@ -92,6 +92,11 @@ namespace MemberManager.Data
 
         private IQueryable<EF.Member> ApplyQuery(MemberQueryParameter query, IQueryable<EF.Member> queryable)
         {
+            if (query.Id > 0)
+            {
+                queryable = queryable.Where(q => q.Id == query.Id);
+            }
+
             if (!string.IsNullOrWhiteSpace(query.UserName))
             {
                 queryable = queryable.Where(q => q.UserName.Contains(query.UserName));
@@ -100,6 +105,41 @@ namespace MemberManager.Data
             if (!string.IsNullOrWhiteSpace(query.FirstName))
             {
                 queryable = queryable.Where(q => q.FirstName.Contains(query.FirstName));
+            }
+
+            if (!string.IsNullOrWhiteSpace(query.LastName))
+            {
+                queryable = queryable.Where(q => q.LastName.Contains(query.LastName));
+            }
+
+            if (!string.IsNullOrWhiteSpace(query.EmailAddress))
+            {
+                queryable = queryable.Where(q => q.EmailAddress.Contains(query.EmailAddress));
+            }
+
+            if (!string.IsNullOrWhiteSpace(query.PhoneNumber))
+            {
+                queryable = queryable.Where(q => q.PhoneNumber.Contains(query.PhoneNumber));
+            }
+
+            if (query.CreatedDate != null)
+            {
+                queryable = queryable.Where(q => q.CreatedDate == query.CreatedDate);
+            }
+
+            if (query.Active != null)
+            {
+                queryable = queryable.Where(q => q.Active == query.Active);
+            }
+
+            if (query.DateOfBirth != null)
+            {
+                queryable = queryable.Where(q => q.DateOfBirth == query.DateOfBirth);
+            }
+
+            if (query.LastModifiedDate != null)
+            {
+                queryable = queryable.Where(q => q.LastModifiedDate == query.LastModifiedDate);
             }
 
             return queryable;
