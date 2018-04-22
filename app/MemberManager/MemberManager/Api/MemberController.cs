@@ -1,5 +1,4 @@
-﻿using MemberManager.BusinessObjects;
-using MemberManager.BusinessObjects.Queries;
+﻿using MemberManager.BusinessObjects.Queries;
 using MemberManager.Interfaces;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -17,19 +16,19 @@ namespace MemberManager.Api
         }
 
         [HttpPost]
-        [Route("member/find")]
+        [Route("find")]
         public IHttpActionResult Members([FromBody] MemberQueryParameter query)
         {
             var response = _memberDomain.Get(query);
             return Ok(response);
         }
 
-        // GET api/<controller>/5
-        public IHttpActionResult Get(int id)
-        {
-            var response = _memberDomain.GetMember(id);
-            return Ok(response);
-        }
+        //// GET api/<controller>/5
+        //public IHttpActionResult Get(int id)
+        //{
+        //    var response = _memberDomain.GetMember(id);
+        //    return Ok(response);
+        //}
 
         //[HttpPost]
         //[Route("member/save")]
@@ -39,11 +38,18 @@ namespace MemberManager.Api
         //    return Ok(response);
         //}
 
-        // DELETE api/<controller>/5
-        public IHttpActionResult Delete(int id)
+        [HttpPut]
+        [Route("put")]
+        public IHttpActionResult Put()
         {
-            var response = _memberDomain.Delete(id);
-            return Ok(response);
+            return Ok("PUT: Test message");
         }
+
+        //// DELETE api/<controller>/5
+        //public IHttpActionResult Delete(int id)
+        //{
+        //    var response = _memberDomain.Delete(id);
+        //    return Ok(response);
+        //}
     }
 }

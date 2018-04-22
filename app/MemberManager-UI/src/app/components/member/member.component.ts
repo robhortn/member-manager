@@ -13,6 +13,7 @@ export class MemberComponent implements OnInit {
   members = [];
   currentMember = {};
   memberSearchQuery = new Member();
+  testCallReturnMessage = {};
 
   constructor(private memberService: MemberService) {
 
@@ -22,9 +23,11 @@ export class MemberComponent implements OnInit {
     // this.memberService.loaddata().subscribe(data => {
     //   this.currentMember = data;
     // });
-    this.memberSearchQuery.Id = 0;
+    this.memberSearchQuery.Active = true;
     this.memberService.getMembers(this.memberSearchQuery).subscribe(data => {
       this.members = data;
+    // this.memberService.testCall().subscribe(data => {
+    //      this.testCallReturnMessage = data.toString;
     });
   }
 }
