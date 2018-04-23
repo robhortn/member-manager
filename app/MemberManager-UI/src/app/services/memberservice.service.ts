@@ -9,7 +9,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 @Injectable()
 export class MemberService {
 
-  server_url = 'http://localhost:55648/';
+  server_url = 'http://localhost:55648/api/';
   serviceData = null;
 
   constructor(private http: HttpClient) {
@@ -34,7 +34,7 @@ export class MemberService {
 
   getMembers(member: Member): Observable<any> {
     // return this.serviceData;
-    const url = this.server_url + 'find';
+    const url = this.server_url + 'member/find';
     const body = JSON.stringify(member);
     return this.http.post(url, body, httpOptions);
   }

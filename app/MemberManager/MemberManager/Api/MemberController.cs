@@ -5,7 +5,7 @@ using System.Web.Http.Cors;
 
 namespace MemberManager.Api
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/member")]
     public class MemberController : BaseController
     {
         private IMemberDomain _memberDomain;

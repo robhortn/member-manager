@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Configuration;
+using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace MemberManager
 {
@@ -6,7 +8,9 @@ namespace MemberManager
     {
         public static void Register(HttpConfiguration config)
         {
-            config.EnableCors();
+            // Global configuration cross origin site scripting
+            var cors = new EnableCorsAttribute(GetAllowedOrigins(), "*", "*");
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -16,6 +20,15 @@ namespace MemberManager
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+        }
+
+        public static string GetAllowedOrigins() {
+            var allowedOrigins = ConfigurationManager.AppSettings["AllowedOrigins"];
+            if (allowedOrigins == null)
+            {
+                throw new ConfigurationErrorsException("Could not find AllowedOrigins in Web.Config file.");
+            }
+            return allowedOrigins;
         }
     }
 }
