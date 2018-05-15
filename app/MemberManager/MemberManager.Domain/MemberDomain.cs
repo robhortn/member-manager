@@ -8,7 +8,7 @@ namespace MemberManager.Domain
 {
     public class MemberDomain : IMemberDomain
     {
-        private IMemberRepo _repo;
+        private readonly IMemberRepo _repo;
 
         public MemberDomain(IMemberRepo repo)
         {

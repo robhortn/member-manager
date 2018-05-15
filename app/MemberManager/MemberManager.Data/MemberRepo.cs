@@ -20,7 +20,10 @@ namespace MemberManager.Data
 
         public ICollection<Member> Get(MemberQueryParameter query)
         {
-            if (query == null) query = new MemberQueryParameter { Id = 0 };
+            if (query == null)
+            {
+                query = new MemberQueryParameter { Id = 0 };
+            }
 
             var queryable = GetBaseQuery();
             queryable = ApplyQuery(query, queryable);
@@ -31,7 +34,10 @@ namespace MemberManager.Data
         public Member GetMember(int id)
         {
             var findResult = GetMemberById(id);
-            if (findResult == null) return new Member { Id = 0 };
+            if (findResult == null)
+            {
+                return new Member { Id = 0 };
+            }
 
             Member results = Mappings.MapMember(findResult);
             return results;
@@ -39,7 +45,10 @@ namespace MemberManager.Data
         public bool Delete(int id)
         {
             var findResult = GetMemberById(id);
-            if (findResult == null) return false;
+            if (findResult == null)
+            {
+                return false;
+            }
 
             findResult.Active = false;
             MemberContext.SaveChanges();
@@ -148,6 +157,5 @@ namespace MemberManager.Data
         {
             return queryable.AsEnumerable().Select(x => Mappings.MapMember(x)).ToList();
         }
-
     }
 }

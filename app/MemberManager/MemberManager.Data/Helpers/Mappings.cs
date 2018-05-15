@@ -7,7 +7,10 @@ namespace MemberManager.Data.Helpers
     {
         public static BusinessObjects.Member MapMember(Member member)
         {
-            if (member == null) throw new NullReferenceException("member is null in params list");
+            if (member == null)
+            {
+                throw new NullReferenceException("member is null in params list");
+            }
 
             try
             {
@@ -33,7 +36,10 @@ namespace MemberManager.Data.Helpers
 
         public static Member MapMember(BusinessObjects.Member member)
         {
-            if (member == null) throw new NullReferenceException("member is null in params list");
+            if (member == null)
+            {
+                throw new NullReferenceException("member is null in params list");
+            }
 
             try
             {
