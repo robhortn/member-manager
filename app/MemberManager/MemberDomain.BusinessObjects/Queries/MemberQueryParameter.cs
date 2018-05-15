@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MemberManager.BusinessObjects.Queries
+namespace MemberDomain.BusinessObjects.Queries
 {
     public class MemberQueryParameter
     {

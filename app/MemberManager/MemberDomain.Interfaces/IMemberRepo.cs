@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using MemberDomain.BusinessObjects;
+using MemberDomain.BusinessObjects.Queries;
 using MemberManager.BusinessObjects;
-using MemberManager.BusinessObjects.Queries;
 
-namespace MemberManager.Interfaces
+namespace MemberDomain.Interfaces
 {
     public interface IMemberRepo
     {
         ICollection<Member> Get(MemberQueryParameter query);
 
-        Member GetMember(int id);
+        MemberSearchResponse GetMember(int id);
         int Save(Member member);
         bool Delete(int id);
     }

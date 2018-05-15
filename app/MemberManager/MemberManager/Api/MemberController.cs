@@ -1,7 +1,6 @@
-﻿using MemberManager.BusinessObjects.Queries;
+﻿using MemberDomain.BusinessObjects.Queries;
 using MemberManager.Interfaces;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
 namespace MemberManager.Api
 {

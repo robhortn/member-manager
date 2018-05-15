@@ -1,11 +1,11 @@
 using MemberManager.Data.Helpers;
 using MemberManager.BusinessObjects;
-using MemberManager.Interfaces;
-using MemberManager.BusinessObjects.Queries;
-
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using MemberDomain.BusinessObjects;
+using MemberDomain.BusinessObjects.Queries;
+using MemberDomain.Interfaces;
 
 namespace MemberManager.Data
 {
@@ -31,16 +31,22 @@ namespace MemberManager.Data
             return results;
         }
 
-        public Member GetMember(int id)
+        public MemberSearchResponse GetMember(int id)
         {
+            var response = new MemberSearchResponse();
+
             var findResult = GetMemberById(id);
             if (findResult == null)
             {
-                return new Member { Id = 0 };
+                response.Members.Add(new Member {Id = 0 });
+                response.Success = false;
+                return response;
             }
 
             Member results = Mappings.MapMember(findResult);
-            return results;
+            response.Members.Add(results);
+            response.Success = true;
+            return response;
         }
         public bool Delete(int id)
         {

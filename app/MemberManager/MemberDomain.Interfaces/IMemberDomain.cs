@@ -1,6 +1,7 @@
 ﻿using MemberManager.BusinessObjects;
-using MemberManager.BusinessObjects.Queries;
 using System.Collections.Generic;
+using MemberDomain.BusinessObjects;
+using MemberDomain.BusinessObjects.Queries;
 
 namespace MemberManager.Interfaces
 {
@@ -10,7 +11,7 @@ namespace MemberManager.Interfaces
 
         ICollection<Member> Get(MemberQueryParameter query);
 
-        Member GetMember(int id);
+        MemberSearchResponse GetMember(int id);
 
         int Save(Member member);
     }

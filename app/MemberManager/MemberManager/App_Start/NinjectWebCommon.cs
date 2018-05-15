@@ -1,4 +1,6 @@
-﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MemberManager.App_Start.NinjectWebCommon), "Start")]
+﻿using MemberDomain.Interfaces;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MemberManager.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MemberManager.App_Start.NinjectWebCommon), "Stop")]
 
 namespace MemberManager.App_Start

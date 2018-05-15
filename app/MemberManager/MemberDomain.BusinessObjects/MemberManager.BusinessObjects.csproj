@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Member.cs" />
-    <Compile Include="MemberQueryParameter.cs" />
+    <Compile Include="Queries\MemberQueryParameter.cs" />
+    <Compile Include="Responses\MemberSearchResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\QueryResponseBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
